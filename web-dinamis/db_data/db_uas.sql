@@ -414,3 +414,18 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- Data Exported Automatically --
+INSERT INTO products (id, category_id, name, description, material, price, sale_price, stock, size, color, image_url, is_featured, is_active, total_sold, created_at) VALUES 
+(1, 1, 'Kemeja Flanel Vintage', 'Kemeja flanel kotak-kotak dengan potongan fit modern, cocok untuk gaya kasual.', 'Katun Premium', 185000.00, null, 20, NULL, NULL, 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=500&q=80', 1, 1, 0, '2026-06-06 14:57:00.000'),
+(2, 2, 'Dress Floral Musim Panas', 'Dress anggun motif bunga dengan bahan adem yang nyaman dipakai.', 'Rayon', 220000.00, null, 15, NULL, NULL, 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=500&q=80', 1, 1, 0, '2026-06-06 14:57:00.000'),
+(3, 4, 'Tas Selempang Kanvas', 'Tas selempang minimalis yang muat banyak barang esensial.', 'Kanvas Tebal', 125000.00, null, 50, NULL, NULL, 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=500&q=80', 1, 1, 0, '2026-06-06 14:57:00.000'),
+(4, 1, 'Jaket Denim Klasik', 'Jaket jeans tebal yang tak pernah lekang oleh waktu.', 'Denim', 350000.00, null, 10, NULL, NULL, 'https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=500&q=80', 1, 1, 0, '2026-06-06 14:57:00.000'),
+(5, 1, 'Kaos Basic Pria - Putih', 'Kaos katun premium yang nyaman dipakai sehari-hari dengan potongan modern fit.', NULL, 125000.00, null, 50, NULL, NULL, 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=500&auto=format&fit=crop', 0, 1, 0, '2026-06-06 15:30:39.000'),
+(6, 2, 'Blazer Wanita Elegan', 'Blazer formal cocok untuk kerja atau acara kasual. Bahan adem dan tidak mudah kusut.', NULL, 350000.00, null, 20, NULL, NULL, 'https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=500&q=80', 0, 1, 0, '2026-06-06 15:30:39.000'),
+(7, 4, 'Kacamata Hitam Vintage', 'Kacamata hitam dengan desain retro yang akan melindungi mata Anda dengan gaya.', NULL, 150000.00, null, 100, NULL, NULL, 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=500&auto=format&fit=crop', 0, 1, 0, '2026-06-06 15:30:39.000'),
+(8, 1, 'Celana Chino Pria - Khaki', 'Celana chino bahan stretch yang nyaman untuk mobilitas tinggi.', NULL, 250000.00, null, 35, NULL, NULL, 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=500&auto=format&fit=crop', 0, 1, 0, '2026-06-06 15:30:39.000'),
+(9, 2, 'Rok Lipit Midi', 'Rok lipit kekinian yang anggun dan elegan untuk dipadukan dengan berbagai atasan.', NULL, 180000.00, null, 40, NULL, NULL, 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?q=80&w=500&auto=format&fit=crop', 0, 1, 0, '2026-06-06 15:30:39.000'),
+(10, 4, 'Topi Baseball Polos', 'Topi dengan bahan kanvas premium, ukuran bisa disesuaikan.', NULL, 85000.00, null, 60, NULL, NULL, 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=500&auto=format&fit=crop', 0, 1, 0, '2026-06-06 15:30:39.000');
+INSERT INTO users (id, full_name, email, phone, password_hash, avatar_url, gender, birth_date, role, is_active, created_at, updated_at, last_login_at) VALUES 
+(1, 'Admin StyleHub', 'admin@stylehub.com', NULL, '$2b$10$u6RdQw.6dZRnPVLkc1NxceMyMq/B9DGTDizH7TCVOvLydUqFcK88S', NULL, NULL, NULL, 'admin', 1, '2026-06-06 17:29:46.000', '2026-06-06 17:29:46.000', NULL);
