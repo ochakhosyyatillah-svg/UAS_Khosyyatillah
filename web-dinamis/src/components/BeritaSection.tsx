@@ -21,7 +21,7 @@ export default async function BeritaSection() {
         Produk Populer
       </h2>
       <p className="section-subtitle">
-        Koleksi produk terbaik yang tersedia di database toko Anda.
+        Temukan gaya fashion terkini untuk melengkapi penampilanmu.
       </p>
 
       {products.length === 0 ? (

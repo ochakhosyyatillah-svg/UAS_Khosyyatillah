@@ -429,3 +429,6 @@ INSERT INTO products (id, category_id, name, description, material, price, sale_
 (10, 4, 'Topi Baseball Polos', 'Topi dengan bahan kanvas premium, ukuran bisa disesuaikan.', NULL, 85000.00, null, 60, NULL, NULL, 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=500&auto=format&fit=crop', 0, 1, 0, '2026-06-06 15:30:39.000');
 INSERT INTO users (id, full_name, email, phone, password_hash, avatar_url, gender, birth_date, role, is_active, created_at, updated_at, last_login_at) VALUES 
 (1, 'Admin StyleHub', 'admin@stylehub.com', NULL, '$2b$10$u6RdQw.6dZRnPVLkc1NxceMyMq/B9DGTDizH7TCVOvLydUqFcK88S', NULL, NULL, NULL, 'admin', 1, '2026-06-06 17:29:46.000', '2026-06-06 17:29:46.000', NULL);
+
+INSERT IGNORE INTO users (full_name, email, password_hash, role) VALUES 
+('Admin StyleHub', 'admin@stylehub.com', '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.', 'admin');

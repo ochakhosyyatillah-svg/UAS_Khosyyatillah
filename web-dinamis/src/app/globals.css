@@ -41,6 +41,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
   background-color: transparent;
 }
@@ -337,6 +338,8 @@ section {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 3rem 1.5rem;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .berita-card {
   padding: 0;
@@ -351,7 +354,12 @@ section {
   overflow: hidden;
   background-color: var(--bg-secondary);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+
 .berita-card__img img {
   width: 100%;
   height: 100%;
