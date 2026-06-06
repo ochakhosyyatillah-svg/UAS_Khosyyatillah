@@ -20,7 +20,7 @@ export default async function ServicesSection() {
         Kategori Produk
       </h2>
       <p className="section-subtitle">
-        Jelajahi koleksi kategori pakaian dan aksesoris langsung dari database toko.
+        Temukan gaya Anda sendiri. Dari busana kasual hingga formal, kami hadirkan koleksi terbaik untuk setiap momen.
       </p>
       <div className="services-grid">
         {categories.length === 0 ? (
