@@ -49,7 +49,7 @@ jobs:
             sudo DOCKERHUB_USERNAME=ochakhosyyatillah docker compose up -d --force-recreate --no-deps container-dinamis
             sudo docker image prune -af
             echo "Resetting and importing database on EC2..."
-            sudo docker compose exec -T db-webdinamis mysql -u root -p'password!123' -e "DROP DATABASE IF EXISTS db_uas; CREATE DATABASE db_uas;"
-            sudo docker compose exec -T db-webdinamis mysql -u root -p'password!123' db_uas < db_data/db_uas.sql
+            sudo docker compose exec -T db-webdinamis mariadb -u root -p'password!123' -e "DROP DATABASE IF EXISTS db_uas; CREATE DATABASE db_uas;"
+            sudo docker compose exec -T db-webdinamis mariadb -u root -p'password!123' db_uas < db_data/db_uas.sql
             echo "=== Status ==="
             sudo docker ps
