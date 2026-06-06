@@ -61,11 +61,10 @@ export default async function BeritaIndexPage() {
               </div>
             )}
 
-            <div className="berita-card__body">
+            <div className="card-content">
               <h3>{item.name}</h3>
-              <span className="berita-card__price">
-                Rp {item.price.toLocaleString("id-ID")}
-              </span>
+              <div className="card-price">Rp {item.price.toLocaleString("id-ID")}</div>
+              <button className="cta-btn">Lihat Detail</button>
             </div>
           </Link>
         ))}
