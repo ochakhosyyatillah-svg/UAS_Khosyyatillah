@@ -5,6 +5,8 @@ import BeritaSection from "@/components/BeritaSection";
 import ContactSection from "@/components/ContactSection";
 import { query } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const [categoryCount] = await query<{ total: number }>(
     "SELECT COUNT(*) AS total FROM categories WHERE is_active = 1"

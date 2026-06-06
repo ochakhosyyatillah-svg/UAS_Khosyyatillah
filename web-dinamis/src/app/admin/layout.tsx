@@ -2,7 +2,7 @@
 
 import { signOut, useSession, SessionProvider } from "next-auth/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import "./admin.css";
 
@@ -40,9 +40,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 }
 
 function AdminShell({ children }: { children: React.ReactNode }) {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const pathname = usePathname();
+  const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Fallback protection: redirect if not logged in
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/login");
+    }
+  }, [status, router]);
 
   // Close sidebar on route change
   useEffect(() => {
@@ -68,6 +76,14 @@ function AdminShell({ children }: { children: React.ReactNode }) {
   )?.name || "Dashboard";
 
   const initial = session?.user?.name?.charAt(0).toUpperCase() || "A";
+
+  if (status === "loading") {
+    return <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f8fafc" }}>Loading...</div>;
+  }
+
+  if (status === "unauthenticated") {
+    return null; // Don't flash the admin UI while redirecting
+  }
 
   return (
     <div className="admin-root">
