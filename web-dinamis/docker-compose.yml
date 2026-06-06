@@ -30,7 +30,7 @@ services:
       - DB_NAME=db_uas
       - DB_PORT=3306
       - NEXTAUTH_SECRET=ganti-dengan-string-acak-panjang-minimal-32-karakter
-      - NEXTAUTH_URL=http://47.128.216.70:3000
+      - NEXTAUTH_URL=http://18.143.179.219:3000
     depends_on:
       - db-webdinamis
 

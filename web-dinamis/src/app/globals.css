@@ -319,7 +319,7 @@ section {
 /* Specific background images for categories */
 .card:nth-child(1)::before { background-image: url('https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=800&auto=format&fit=crop'); } /* Pria */
 .card:nth-child(2)::before { background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop'); } /* Wanita */
-.card:nth-child(3)::before { background-image: url('https://images.unsplash.com/photo-1519241047957-be31d7379a5d?q=80&w=800&auto=format&fit=crop'); } /* Anak-anak */
+.card:nth-child(3)::before { background-image: url('https://images.unsplash.com/photo-1503919545889-aef636e10ad4?q=80&w=800&auto=format&fit=crop'); } /* Anak-anak */
 .card:nth-child(4)::before { background-image: url('https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=800&auto=format&fit=crop'); } /* Aksesoris */
 
 /* ──────────────── Berita / Products ──────────────── */
