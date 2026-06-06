@@ -18,10 +18,10 @@ export default async function AdminDashboard() {
   );
 
   const stats = [
-    { name: "Total Kategori", value: categoryCount[0]?.total ?? 0, href: "/admin/kategori", color: "#7c3aed", bg: "#f5f3ff", border: "#ede9fe" },
-    { name: "Total Produk", value: productCount[0]?.total ?? 0, href: "/admin/produk", color: "#2563eb", bg: "#eff6ff", border: "#bfdbfe" },
-    { name: "Pesanan Baru", value: pendingOrders[0]?.total ?? 0, href: "/admin", color: "#0891b2", bg: "#ecfeff", border: "#a5f3fc" },
-    { name: "Total Pelanggan", value: userCount[0]?.total ?? 0, href: "/admin", color: "#059669", bg: "#f0fdf4", border: "#bbf7d0" },
+    { name: "Total Kategori", value: categoryCount?.total ?? 0, href: "/admin/kategori", color: "#7c3aed", bg: "#f5f3ff", border: "#ede9fe" },
+    { name: "Total Produk", value: productCount?.total ?? 0, href: "/admin/produk", color: "#2563eb", bg: "#eff6ff", border: "#bfdbfe" },
+    { name: "Pesanan Baru", value: pendingOrders?.total ?? 0, href: "/admin", color: "#0891b2", bg: "#ecfeff", border: "#a5f3fc" },
+    { name: "Total Pelanggan", value: userCount?.total ?? 0, href: "/admin", color: "#059669", bg: "#f0fdf4", border: "#bbf7d0" },
   ];
 
   const recentProducts = await query<any>(
