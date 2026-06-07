@@ -8,18 +8,18 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "text", placeholder: "admin@example.com" },
+        username: { label: "Username", type: "text", placeholder: "admin" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
+        if (!credentials?.username || !credentials?.password) {
           return null;
         }
 
         try {
           const rows = await query<any>(
-            "SELECT id, email, password_hash AS password, role FROM users WHERE email = ?",
-            [credentials.email]
+            "SELECT id, email, password_hash AS password, role FROM users WHERE email = ? OR full_name = ?",
+            [credentials.username, credentials.username]
           );
 
           const user = rows[0];

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -18,9 +18,9 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     setError("");
-    const res = await signIn("credentials", { redirect: false, email, password });
+    const res = await signIn("credentials", { redirect: false, username, password });
     if (res?.error) {
-      setError("Email atau password salah.");
+      setError("Username atau password salah.");
       setLoading(false);
     } else {
       router.push("/admin");
@@ -130,12 +130,12 @@ export default function LoginPage() {
                 display: "block", fontSize: "10px", fontWeight: 600,
                 color: "#666", textTransform: "uppercase", letterSpacing: "2px",
                 marginBottom: "8px",
-              }}>Email Address</label>
+              }}>Username</label>
               <div style={{ position: "relative" }}>
                 <input
-                  type="email" required value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  type="text" required value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Enter your username"
                   className="login-input"
                   style={{
                     width: "100%", boxSizing: "border-box",
