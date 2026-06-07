@@ -18,10 +18,10 @@ export default async function AdminDashboard() {
   );
 
   const stats = [
-    { name: "Total Kategori", value: categoryCount?.total ?? 0, href: "/admin/kategori", color: "#7c3aed", bg: "#f5f3ff", border: "#ede9fe" },
-    { name: "Total Produk", value: productCount?.total ?? 0, href: "/admin/produk", color: "#2563eb", bg: "#eff6ff", border: "#bfdbfe" },
-    { name: "Pesanan Baru", value: pendingOrders?.total ?? 0, href: "/admin", color: "#0891b2", bg: "#ecfeff", border: "#a5f3fc" },
-    { name: "Total Pelanggan", value: userCount?.total ?? 0, href: "/admin", color: "#059669", bg: "#f0fdf4", border: "#bbf7d0" },
+    { name: "Total Kategori", value: categoryCount?.total ?? 0, href: "/admin/kategori", color: "#c6a87c", bg: "#fcfaf7", border: "#ede6db" },
+    { name: "Total Produk", value: productCount?.total ?? 0, href: "/admin/produk", color: "#1a1a1a", bg: "#f5f5f5", border: "#e5e5e5" },
+    { name: "Pesanan Baru", value: pendingOrders?.total ?? 0, href: "/admin", color: "#a3705a", bg: "#faf4f2", border: "#f0e2db" },
+    { name: "Total Pelanggan", value: userCount?.total ?? 0, href: "/admin", color: "#6b7c66", bg: "#f5f7f4", border: "#e4eae1" },
   ];
 
   const recentProducts = await query<any>(
@@ -33,22 +33,20 @@ export default async function AdminDashboard() {
 
   return (
     <div>
-      <div style={{ marginBottom: "28px" }}>
-        <h2 style={{ fontSize: "22px", fontWeight: 800, color: "#0f172a", marginBottom: "6px" }}>
-          Selamat Datang 👋
-        </h2>
-        <p style={{ color: "#64748b", fontSize: "14px" }}>
-          Berikut adalah ringkasan data e-commerce StyleHub Anda.
+      <div className="admin-welcome-banner">
+        <h2>Selamat Datang di <span className="accent">StyleHub Atelier</span> ✨</h2>
+        <p style={{ margin: 0 }}>
+          &ldquo;Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas, the way we live, what is happening.&rdquo; — Coco Chanel
         </p>
       </div>
 
       {/* Stats */}
       <div className="admin-stats-grid">
         {stats.map((s) => (
-          <Link key={s.name} href={s.href} className="admin-stat-card" style={{ textDecoration: "none" }}>
+          <Link key={s.name} href={s.href} className="admin-stat-card" style={{ textDecoration: "none", ["--stat-accent" as any]: s.color }}>
             <div>
-              <div style={{ fontSize: "13px", color: "#64748b", fontWeight: 500, marginBottom: "8px" }}>{s.name}</div>
-              <div style={{ fontSize: "32px", fontWeight: 800, color: "#0f172a", lineHeight: 1 }}>{s.value}</div>
+              <div style={{ fontSize: "13px", color: "#8b7e6f", fontWeight: 500, marginBottom: "8px" }}>{s.name}</div>
+              <div style={{ fontSize: "32px", fontWeight: 800, color: "#1a1a1a", lineHeight: 1 }}>{s.value}</div>
             </div>
             <div style={{
               width: "48px", height: "48px", borderRadius: "12px",
@@ -63,21 +61,21 @@ export default async function AdminDashboard() {
       </div>
 
       {/* Recent content */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+      <div className="admin-dashboard-grid">
         {/* Recent Products */}
         <div className="admin-card">
-          <div style={{ padding: "20px 24px", borderBottom: "1px solid #f1f5f9", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <div style={{ fontSize: "15px", fontWeight: 700, color: "#0f172a" }}>Produk Terbaru</div>
-            <Link href="/admin/produk" className="admin-btn admin-btn-primary" style={{ padding: "6px 14px", fontSize: "12px" }}>Lihat Semua Produk</Link>
+          <div className="admin-card-header">
+            <div className="admin-card-header-title">Produk Terbaru</div>
+            <Link href="/admin/produk" className="admin-btn admin-btn-accent" style={{ padding: "6px 14px", fontSize: "12px" }}>Lihat Semua</Link>
           </div>
           <div>
             {recentProducts.length === 0 ? (
-              <div style={{ padding: "32px", textAlign: "center", color: "#94a3b8", fontSize: "14px" }}>Belum ada produk aktif.</div>
+              <div style={{ padding: "32px", textAlign: "center", color: "#8b7e6f", fontSize: "14px" }}>Belum ada produk aktif.</div>
             ) : recentProducts.map((item: any) => (
-              <div key={item.id} style={{ padding: "14px 24px", borderBottom: "1px solid #f8fafc", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div key={item.id} className="admin-product-item">
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: "13px", fontWeight: 600, color: "#1e293b", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.name}</div>
-                  <div style={{ fontSize: "11px", color: "#94a3b8", marginTop: "2px" }}>
+                  <div style={{ fontSize: "13px", fontWeight: 600, color: "#1a1a1a", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.name}</div>
+                  <div style={{ fontSize: "11px", color: "#8b7e6f", marginTop: "2px" }}>
                     Rp {Number(item.price).toLocaleString("id-ID")} • {new Date(item.created_at).toLocaleDateString("id-ID")}
                   </div>
                 </div>
@@ -88,18 +86,18 @@ export default async function AdminDashboard() {
 
         {/* Recent Orders */}
         <div className="admin-card">
-          <div style={{ padding: "20px 24px", borderBottom: "1px solid #f1f5f9", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <div style={{ fontSize: "15px", fontWeight: 700, color: "#0f172a" }}>Pesanan Terbaru</div>
+          <div className="admin-card-header">
+            <div className="admin-card-header-title">Pesanan Terbaru</div>
             <Link href="/admin" className="admin-btn admin-btn-secondary" style={{ padding: "6px 14px", fontSize: "12px" }}>Ringkasan</Link>
           </div>
           <div>
             {recentOrders.length === 0 ? (
-              <div style={{ padding: "32px", textAlign: "center", color: "#94a3b8", fontSize: "14px" }}>Belum ada pesanan.</div>
+              <div style={{ padding: "32px", textAlign: "center", color: "#8b7e6f", fontSize: "14px" }}>Belum ada pesanan.</div>
             ) : recentOrders.map((order: any) => (
-              <div key={order.id} style={{ padding: "14px 24px", borderBottom: "1px solid #f8fafc", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div key={order.id} className="admin-product-item">
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: "13px", fontWeight: 600, color: "#1e293b", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{order.order_number}</div>
-                  <div style={{ fontSize: "11px", color: "#94a3b8", marginTop: "2px" }}>
+                  <div style={{ fontSize: "13px", fontWeight: 600, color: "#1a1a1a", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{order.order_number}</div>
+                  <div style={{ fontSize: "11px", color: "#8b7e6f", marginTop: "2px" }}>
                     {order.recipient_name} • Rp {Number(order.grand_total).toLocaleString("id-ID")}
                   </div>
                 </div>
