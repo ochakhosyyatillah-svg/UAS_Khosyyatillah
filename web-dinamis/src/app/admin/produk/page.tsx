@@ -45,7 +45,7 @@ export default async function ProdukAdminPage() {
           <div className="admin-page-subtitle">Kelola semua produk fashion dari database ({products.length} produk)</div>
         </div>
         <Link href="/admin/produk/create" className="admin-btn admin-btn-primary">
-          <PlusIcon /> Tambah Produk
+          <PlusIcon /> Add Produk
         </Link>
       </div>
 
@@ -67,7 +67,7 @@ export default async function ProdukAdminPage() {
               {products.length === 0 ? (
                 <tr>
                   <td colSpan={7} style={{ textAlign: "center", padding: "48px", color: "#94a3b8" }}>
-                    Belum ada produk. Klik &quot;Tambah Produk&quot; untuk memulai.
+                    Belum ada produk. Klik &quot;Add Produk&quot; untuk memulai.
                   </td>
                 </tr>
               ) : products.map((item) => (
